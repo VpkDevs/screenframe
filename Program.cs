@@ -11,7 +11,7 @@ namespace WindowsMarginManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
-            var mainForm = new MainForm();
+            using var mainForm = new MainForm();
             Application.Run();
         }
     }

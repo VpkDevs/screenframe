@@ -50,7 +50,7 @@ namespace WindowsMarginManager
                 ["AspectRatioMultiplier"] = aspectRatioMultiplier,
                 ["FinalMultiplier"] = adaptiveSettings.AdaptiveMultiplier,
                 ["MonitorResolution"] = $"{monitor.Bounds.Width}x{monitor.Bounds.Height}",
-                ["MonitorDpi"] = monitor.DpiScale,
+                ["MonitorDpi"] = monitor.DpiScaling,
                 ["WindowProcess"] = window.ProcessName
             };
 
@@ -90,7 +90,7 @@ namespace WindowsMarginManager
 
         private double CalculateDpiMultiplier(MonitorInfo monitor)
         {
-            var dpiScale = monitor.DpiScale;
+            var dpiScale = monitor.DpiScaling;
             
             if (dpiScale <= 1.0)
                 return 1.0;
