@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+#pragma warning disable CS8618 // WinForms controls are assigned during InitializeComponent.
+
 namespace WindowsMarginManager
 {
     public partial class MonitorConfigForm : Form
@@ -11,9 +13,8 @@ namespace WindowsMarginManager
         
         private NumericUpDown leftMarginUpDown, topMarginUpDown, rightMarginUpDown, bottomMarginUpDown;
         private CheckBox enabledCheckBox, usePercentageCheckBox;
-        private ComboBox priorityComboBox;
         private Button okButton, cancelButton, testButton;
-        private Label resolutionLabel, dpiLabel, workingAreaLabel;
+        private Label resolutionLabel, dpiLabel;
 
         public MonitorConfigForm(MonitorInfo monitor, MultiMonitorManager multiMonitorManager)
         {
@@ -62,7 +63,7 @@ namespace WindowsMarginManager
 
             dpiLabel = new Label
             {
-                Text = $"DPI Scale: {monitor.DpiScale:F2}x",
+                Text = $"DPI Scale: {monitor.DpiScaling:F2}x",
                 Location = new Point(12, 65),
                 Size = new Size(340, 20)
             };
