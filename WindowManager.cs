@@ -404,6 +404,11 @@ namespace WindowsMarginManager
     {
         public IntPtr Handle { get; set; }
         public Rectangle Rectangle { get; set; }
+        public Rectangle Bounds
+        {
+            get => Rectangle;
+            set => Rectangle = value;
+        }
         public bool IsMaximized { get; set; }
         public bool IsMinimized { get; set; }
         public string Title { get; set; } = string.Empty;
@@ -488,7 +493,8 @@ namespace WindowsMarginManager
             if (criteria.AspectRatioRange != null)
             {
                 var aspectRatio = (double)rect.Width / rect.Height;
-                if (aspectRatio < criteria.AspectRatioRange.Min || aspectRatio > criteria.AspectRatioRange.Max)
+                var range = criteria.AspectRatioRange.Value;
+                if (aspectRatio < range.Min || aspectRatio > range.Max)
                     return false;
             }
 
@@ -530,7 +536,8 @@ namespace WindowsMarginManager
 
             if (criteria.ProcessIdRange != null)
             {
-                if (window.ProcessId < criteria.ProcessIdRange.Min || window.ProcessId > criteria.ProcessIdRange.Max)
+                var range = criteria.ProcessIdRange.Value;
+                if (window.ProcessId < range.Min || window.ProcessId > range.Max)
                     return false;
             }
 
@@ -634,7 +641,7 @@ namespace WindowsMarginManager
             if (criteria.TimeRange != null)
             {
                 var currentTime = DateTime.Now.TimeOfDay;
-                if (currentTime < criteria.TimeRange.Start || currentTime > criteria.TimeRange.End)
+                if (!criteria.TimeRange.Value.Contains(currentTime))
                     return false;
             }
 

@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+#pragma warning disable CS8618 // WinForms controls are assigned during InitializeComponent.
+
 namespace WindowsMarginManager
 {
     public partial class ProfileManagerForm : Form
@@ -11,7 +13,7 @@ namespace WindowsMarginManager
         private ListBox profileListBox;
         private TextBox nameTextBox, descriptionTextBox;
         private Button newButton, editButton, deleteButton, duplicateButton;
-        private Button okButton, cancelButton;
+        private Button okButton;
         private GroupBox detailsGroupBox;
         private Label marginsLabel, filtersLabel, createdLabel, modifiedLabel;
 

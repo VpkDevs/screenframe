@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 
+#pragma warning disable CS8618 // WinForms controls are assigned during InitializeComponent.
+
 namespace WindowsMarginManager
 {
     public partial class SaveProfileDialog : Form

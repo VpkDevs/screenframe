@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Microsoft.Win32;
 using WindowsDisplayAPI;
 using WindowsDisplayAPI.DisplayConfig;
 
@@ -126,7 +127,7 @@ namespace WindowsMarginManager
                         monitor.IsUltrawide = (double)monitor.Bounds.Width / monitor.Bounds.Height > 2.0;
                         monitor.IsCurved = DetectCurvedDisplay(display);
                         monitor.RefreshRate = (int)display.CurrentSetting.Frequency;
-                        monitor.ColorDepth = display.CurrentSetting.BitsPerPixel;
+                        monitor.ColorDepth = monitor.Screen?.BitsPerPixel ?? 0;
                         monitor.DpiScaling = GetDpiScaling(monitor.Handle);
                     }
                 }

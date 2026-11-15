@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+#pragma warning disable CS8618 // WinForms controls are assigned during InitializeComponent.
+
 namespace WindowsMarginManager
 {
     public partial class SchedulingForm : Form
@@ -12,7 +14,7 @@ namespace WindowsMarginManager
         
         private ListView taskListView;
         private Button newTaskButton, editTaskButton, deleteTaskButton, enableDisableButton;
-        private Button okButton, cancelButton;
+        private Button okButton;
         private GroupBox taskDetailsGroupBox;
         private Label nameLabel, triggerLabel, actionLabel, statusLabel, lastExecutedLabel;
         private TextBox logTextBox;

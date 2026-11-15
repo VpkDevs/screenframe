@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+#pragma warning disable CS8618 // WinForms controls are assigned during InitializeComponent.
+
 namespace WindowsMarginManager
 {
     public partial class SettingsForm : Form

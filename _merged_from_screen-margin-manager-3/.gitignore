@@ -1,0 +1,21 @@
+bin/
+obj/
+dist/
+
+# appended by publish script
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+build/
+out/
+.next/
+.turbo/
+.cache/
+.venv/
+venv/
+__pycache__/
+.DS_Store
+.pytest_cache/
+*.pyc
